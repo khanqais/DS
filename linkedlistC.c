@@ -5,12 +5,39 @@ struct Node {
     int data;
     struct Node *link;
 };
+void insertatend(struct Node*head)
+{
+    struct Node*temp;
+    temp = malloc(sizeof(struct Node));
+    printf("\nEnter the data:");
+    scanf("%d\n",&temp->data);
+    temp->link=NULL;
+    struct Node*ptr=head;
+    
+    
+    while(ptr->link!=NULL)
+    {
+        ptr=ptr->link;
+    }
+    ptr->link=temp;
+    struct Node*assis=NULL;
+    assis=head;
+    while(assis!=NULL)
+    {
+        printf("%d",assis->data);
+        
+        assis=assis->link;
+    }
+    
+
+
+}
 
 struct Node* createnode()
 {
-    struct Node *head;
-    struct Node *current;
-    struct Node *temp;
+    struct Node *head=NULL;
+    struct Node *current=NULL;
+    struct Node *temp=NULL;
     int numNodes;
     printf("Enter the number of nodes: ");
     scanf("%d", &numNodes);
@@ -41,17 +68,17 @@ void treverse(struct Node*head)
     ptr=head;
     while(ptr!=NULL)
     {
-        printf("%d",ptr->data);
+        printf("%d ",ptr->data);
         count++;
         ptr=ptr->link;
     }
     printf("\nCount=%d",count);
 } 
-
-
 int main() {
-    struct Node*head;
+    struct Node*head=NULL;
     head=createnode();
     treverse(head);
+    insertatend(head);
+
     return 0;
-}
+}   
