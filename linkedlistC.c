@@ -5,24 +5,13 @@ struct Node {
     int data;
     struct Node *link;
 };
-void treverse(struct Node*head)
-{
-    int count=0;
-    struct Node*ptr=NULL;
-    ptr=head;
-    while(ptr!=NULL)
-    {
-        count++;
-        ptr=ptr->link;
-    }
-    printf("Count=%d",count);
-} 
 
-int main() {
-    int numNodes, i;
+struct Node* createnode()
+{
     struct Node *head;
     struct Node *current;
     struct Node *temp;
+    int numNodes;
     printf("Enter the number of nodes: ");
     scanf("%d", &numNodes);
     head = malloc(sizeof(struct Node));
@@ -30,7 +19,7 @@ int main() {
     scanf("%d", &head->data);
     head->link = NULL;
     current = head;
-    for (i = 2; i <= numNodes; i++) {
+    for (int i = 2; i <= numNodes; i++) {
         temp = malloc(sizeof(struct Node));
 
         
@@ -41,14 +30,28 @@ int main() {
         
         current->link = temp;
         current = temp;
+        
     }
-    printf("The linked list is: ");
-    current = head;
-    while (current != NULL) {
-        printf("%d ", current->data);
-        current = current->link;
+    return head;
+}
+void treverse(struct Node*head)
+{
+    int count=0;
+    struct Node*ptr=NULL;
+    ptr=head;
+    while(ptr!=NULL)
+    {
+        printf("%d",ptr->data);
+        count++;
+        ptr=ptr->link;
     }
-    printf("\n");
+    printf("\nCount=%d",count);
+} 
+
+
+int main() {
+    struct Node*head;
+    head=createnode();
     treverse(head);
     return 0;
 }
