@@ -9,7 +9,8 @@ int rear = -1;
 int size = 0;
 
 
-int isEmpty() {
+int isEmpty() 
+{
     return size == 0;
 }
 

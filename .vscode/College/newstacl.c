@@ -101,7 +101,7 @@ int main() {
                 return 0;
             }
             default: {
-                printf("Invalid Choice hai\n");
+                printf("Invalid choice!!\n");
             }
         }
     }

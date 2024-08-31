@@ -91,7 +91,6 @@ void print() {
 int main() {
     printf("Enter the infix expression: ");
     fgets(infix, MAX, stdin);
-    infix[strcspn(infix, "\n")] = '\0'; // Remove trailing newline character
     intopost();
     print();
     return 0;
